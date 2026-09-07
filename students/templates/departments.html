@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CampusHub | Departments
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <p class="small-title">ACADEMIC STRUCTURE</p>
+
+    <h1>Departments</h1>
+
+    <p>
+        Explore university departments and their students.
+    </p>
+
+</div>
+
+
+<div class="department-grid">
+
+    {% for department in departments %}
+
+    <div class="department-card">
+
+        <div class="department-icon">
+            🏛️
+        </div>
+
+        <h2>{{ department.name|title }}</h2>
+
+        <p class="department-code">
+            {{ department.code|upper }}
+        </p>
+
+        <p>
+            Students:
+            {{ department.student_set.all|length }}
+        </p>
+
+    </div>
+
+    {% empty %}
+
+    <div class="empty-box">
+        <h2>No departments found.</h2>
+        <p>Add departments from the Admin Dashboard.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}

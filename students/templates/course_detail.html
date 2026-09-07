@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CampusHub | {{ course.name }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="detail-page">
+
+    <div class="detail-card course-detail">
+
+        <div class="course-icon large">
+            📚
+        </div>
+
+        <p class="small-title">COURSE DETAILS</p>
+
+        <h1>{{ course.name|title }}</h1>
+
+        <h3>
+            Dr. {{ course.doctor }}
+        </h3>
+
+        <div class="info-row">
+            <strong>Course Hours</strong>
+            <span>{{ course.hours }} Hours</span>
+        </div>
+
+        <div class="description">
+            <strong>Description</strong>
+
+            <p>
+                {{ course.description }}
+            </p>
+        </div>
+
+        <a href="{% url 'courses' %}" class="btn primary">
+            ← Back to Courses
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

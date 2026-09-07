@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CampusHub | {{ student.name }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="detail-page">
+
+    <div class="detail-card">
+
+        <div class="large-avatar">
+            {{ student.name|first|upper }}
+        </div>
+
+        <p class="small-title">STUDENT PROFILE</p>
+
+        <h1>{{ student.name|title }}</h1>
+
+        <div class="info-row">
+            <strong>Email</strong>
+            <span>{{ student.email }}</span>
+        </div>
+
+        <div class="info-row">
+            <strong>Age</strong>
+            <span>{{ student.age }}</span>
+        </div>
+
+        <div class="info-row">
+            <strong>Department</strong>
+            <span>{{ student.department.name }}</span>
+        </div>
+
+        <a href="{% url 'students' %}" class="btn primary">
+            ← Back to Students
+        </a>
+
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CampusHub | Home
+{% endblock %}
+
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <p class="small-title">UNIVERSITY STUDENT PORTAL</p>
+
+        <h1>
+            Welcome to
+            <span>CampusHub</span>
+        </h1>
+
+        <p>
+            A simple and modern university portal
+            for managing students, courses and departments.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="{% url 'students' %}" class="btn primary">
+                Explore Students
+            </a>
+
+            <a href="{% url 'courses' %}" class="btn secondary">
+                View Courses
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="hero-icon">
+        🎓
+    </div>
+
+</section>
+
+
+<section class="stats">
+
+    <div class="stat-card">
+        <div class="stat-icon">👨‍🎓</div>
+
+        <h2>{{ students_count }}</h2>
+
+        <p>Students</p>
+    </div>
+
+
+    <div class="stat-card">
+        <div class="stat-icon">📚</div>
+
+        <h2>{{ courses_count }}</h2>
+
+        <p>Courses</p>
+    </div>
+
+
+    <div class="stat-card">
+        <div class="stat-icon">🏛️</div>
+
+        <h2>{{ departments_count }}</h2>
+
+        <p>Departments</p>
+    </div>
+
+</section>
+
+
+<section class="welcome-section">
+
+    <p class="small-title">CAMPUSHUB</p>
+
+    <h2>Everything you need in one place.</h2>
+
+    <p>
+        Browse students, explore available courses,
+        and discover university departments.
+    </p>
+
+</section>
+
+{% endblock %}

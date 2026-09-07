@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+
+{% block title %}
+CampusHub | Students
+{% endblock %}
+
+
+{% block content %}
+
+<div class="page-header">
+
+    <p class="small-title">CAMPUSHUB DIRECTORY</p>
+
+    <h1>Students</h1>
+
+    <p>
+        Browse all students registered in the university.
+    </p>
+
+</div>
+
+
+<div class="cards-container">
+
+    {% for student in students %}
+
+    <div class="student-card">
+
+        <div class="avatar">
+            {{ student.name|first|upper }}
+        </div>
+
+        <div class="card-content">
+
+            <h2>{{ student.name|title }}</h2>
+
+            <p>{{ student.email }}</p>
+
+            <p>
+                Age: {{ student.age }}
+            </p>
+
+            <span class="badge">
+                {{ student.department.name }}
+            </span>
+
+            <a
+                href="{% url 'student_detail' student.id %}"
+                class="details-link"
+            >
+                View Profile →
+            </a>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <div class="empty-box">
+        <h2>No students found.</h2>
+        <p>Add students from the Admin Dashboard.</p>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+{% endblock %}
